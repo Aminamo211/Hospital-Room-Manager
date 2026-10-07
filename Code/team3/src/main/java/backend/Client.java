@@ -20,8 +20,11 @@ public class Client {
     String Pass;        //Required
     String LastLogin;   //Set by functions
     String LastUpdated; //Set by functions
+
     //empty constructor
-    public Client(){}
+    public Client() {
+    }
+
     //constructor with basic required fields
     public Client(String fn, String ln, String ur, String dob, String p, String pass) {
         FirstName = fn; //set first name
@@ -31,6 +34,7 @@ public class Client {
         Phone = p;     //set phone
         Pass = pass;    //set password HASH LATER
     }
+
     //constructors with optional field
     public Client(String fn, String ln, String ur, String dob, String p, String e, String pass) {
         FirstName = fn; //set first name
@@ -41,10 +45,12 @@ public class Client {
         Email = e; //set email
         Pass = pass;    //set password
     }
+
     public int getClientID() {
-        return ClientID;
+        return UserID;
     }
+
     public void setClientID(int cID) {
-        ClientID = cID;
+        UserID = cID;
     }
 }

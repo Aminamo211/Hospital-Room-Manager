@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="480.0"
+            prefWidth="640.0"
+            xmlns="http://javafx.com/javafx/25.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hospital_room_manager.PatientManagementController">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <Button text="Back"
+                    onAction="#backToDashboard"/>
+
+            <Label text="Patient Management"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane>
+            <tabs>
+
+                <!-- View and delete patients -->
+                <Tab text="Patients" closable="false">
+                    <VBox spacing="10">
+                        <padding>
+                            <Insets top="10" right="15" bottom="15" left="15"/>
+                        </padding>
+
+                        <TableView fx:id="patientTable"
+                                   prefHeight="300">
+
+                            <columns>
+                                <TableColumn fx:id="patientIdColumn"
+                                             text="ID"
+                                             prefWidth="50"/>
+
+                                <TableColumn fx:id="firstNameColumn"
+                                             text="First Name"
+                                             prefWidth="120"/>
+
+                                <TableColumn fx:id="lastNameColumn"
+                                             text="Last Name"
+                                             prefWidth="120"/>
+
+                                <TableColumn fx:id="phoneColumn"
+                                             text="Phone"
+                                             prefWidth="150"/>
+
+                                <TableColumn fx:id="roomIdColumn"
+                                             text="Room"
+                                             prefWidth="70"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="10">
+                            <Button text="Refresh"
+                                    onAction="#loadPatients"/>
+
+                            <Button text="Delete Selected Patient"
+                                    onAction="#deletePatient"/>
+                        </HBox>
+
+                        <Label fx:id="messageLabel"
+                               wrapText="true"/>
+                    </VBox>
+                </Tab>
+
+                <!-- Add a patient -->
+                <Tab text="Add Patient" closable="false">
+                    <GridPane hgap="10" vgap="10">
+                        <padding>
+                            <Insets top="20" right="40" bottom="20" left="40"/>
+                        </padding>
+
+                        <Label text="First name:"
+                               GridPane.rowIndex="0"
+                               GridPane.columnIndex="0"/>
+
+                        <TextField fx:id="firstNameField"
+                                   GridPane.rowIndex="0"
+                                   GridPane.columnIndex="1"/>
+
+                        <Label text="Last name:"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="0"/>
+
+                        <TextField fx:id="lastNameField"
+                                   GridPane.rowIndex="1"
+                                   GridPane.columnIndex="1"/>
+
+                        <Label text="Gender:"
+                               GridPane.rowIndex="2"
+                               GridPane.columnIndex="0"/>
+
+                        <ComboBox fx:id="genderBox"
+                                  promptText="Select gender"
+                                  GridPane.rowIndex="2"
+                                  GridPane.columnIndex="1"/>
+
+                        <Label text="Date of birth:"
+                               GridPane.rowIndex="3"
+                               GridPane.columnIndex="0"/>
+
+                        <DatePicker fx:id="dobPicker"
+                                    GridPane.rowIndex="3"
+                                    GridPane.columnIndex="1"/>
+
+                        <Label text="Phone:"
+                               GridPane.rowIndex="4"
+                               GridPane.columnIndex="0"/>
+
+                        <TextField fx:id="phoneField"
+                                   GridPane.rowIndex="4"
+                                   GridPane.columnIndex="1"/>
+
+                        <Label text="Email:"
+                               GridPane.rowIndex="5"
+                               GridPane.columnIndex="0"/>
+
+                        <TextField fx:id="emailField"
+                                   GridPane.rowIndex="5"
+                                   GridPane.columnIndex="1"/>
+
+                        <Label text="Password:"
+                               GridPane.rowIndex="6"
+                               GridPane.columnIndex="0"/>
+
+                        <PasswordField fx:id="passwordField"
+                                       GridPane.rowIndex="6"
+                                       GridPane.columnIndex="1"/>
+
+                        <Label text="Room ID (optional):"
+                               GridPane.rowIndex="7"
+                               GridPane.columnIndex="0"/>
+
+                        <TextField fx:id="roomIdField"
+                                   GridPane.rowIndex="7"
+                                   GridPane.columnIndex="1"/>
+
+                        <Button text="Add Patient"
+                                onAction="#addPatient"
+                                GridPane.rowIndex="8"
+                                GridPane.columnIndex="1"/>
+                    </GridPane>
+                </Tab>
+
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

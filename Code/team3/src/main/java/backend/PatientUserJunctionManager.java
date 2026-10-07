@@ -4,14 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PatientUserJunctionManager {
-    //store junction
-    private Map<Integer, PatientUserJunction> PatientUserJunction = new HashMap<>();
+
+    private final Map<Integer, PatientUserJunction> patientUserJunctions =
+            new HashMap<>();
+
+    public boolean canViewPatient(long userID, long patientID) {
+        for (PatientUserJunction junction : patientUserJunctions.values()) {
+            if (junction.getUserID() == userID
+                    && junction.getPatientID() == patientID) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
-public boolean canViewPatient(;ong userID, long patientID){
-    for(PatientUserJunction j : PatientUserJunction.value()) {
-        if(j.UserID == userID && j.PatientID) {
-            return true;
-        }
-        }
-    return false;
-        }
